@@ -1,0 +1,2 @@
+REQUEST %{WORD:method} %{NOTSPACE:path}(?: HTTP/%{NUMBER:httpversion;float})
+NGINXACCESSLOG %{IP:remote_addr} - %{USER:remote_user} \[%{HTTPDATE:time_local}\] "%{REQUEST:request}" %{NUMBER:status;int} (?:%{NUMBER:body_bytes_sent;long}|-) %{QS:http_referer} %{QS:http_user_agent}
