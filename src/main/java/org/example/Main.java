@@ -25,10 +25,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Map;
 
-/**
- * The below environmental variables are required:<br/>
- * <b>GOOGLE_APPLICATION_CREDENTIALS:</b> Path to a service account key in JSON format
- */
 public class Main
 {
     private static final Grok grok;
@@ -44,19 +40,6 @@ public class Main
         }
     }
 
-    /**
-     * @param args command line arguments for pipeline options<br/>
-     * <b>Required arguments are:</b><br/>
-     * <b>--project:</b> project name<br/>
-     * <b>--inputSubscription:</b> short name of the Cloud Pub/Sub subscription to read from<br/>
-     * <b>--dataset:</b> name of the BigQuery dataset<br/>
-     * <b>--table:</b> name of the table in the dataset<br/>
-     * <br/>
-     * <b>To use Dataflow Runner the below arguments are also required:</b><br/>
-     * <b>--runner:</b> DataflowRunner<br/>
-     * <b>--region:</b> Dataflow regional endpoint<br/>
-     * <b>--gcpTempLocation:</b> GCP location for Dataflow to download temporary files
-     */
     public static void main(String[] args) throws Exception {
         PipelineOptionsFactory.register(PubSubToBQOptions.class);
         PubSubToBQOptions options =
